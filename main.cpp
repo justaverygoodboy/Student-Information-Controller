@@ -48,14 +48,14 @@ int panelOperation(Oper* list){
             cout<<"2.按成绩排序打印"<<endl;
             cout<<"请输入您要进行操作的序号(输入以外的数字将返回上一级):";
             cin>>opershow;
-            if (opershow==1){
+            if (opershow=='1'){
                 (*list).sortListByNum();
                 (*list).showList();
                 cout<<"键入任意值将返回主页面"<<endl;
                 cin>>back;
                 BACKTIP
                 delay();
-            } else if (opershow==2){
+            } else if (opershow=='2'){
                 (*list).sortListByScore();
                 (*list).showList();
                 cout<<"键入任意值将返回主页面"<<endl;
@@ -75,11 +75,7 @@ int panelOperation(Oper* list){
             delay();
             break;
         case '4':
-            if(!(*list).head){
-                cout<<"您还没有录入任何信息，请先录入信息后再操作！"<<endl;
-                delay();
-                break;
-            }
+            HEADEXIST
             cout<<"确定要执行此操作？(y/n)"<<endl;
             cin>>confirm;
             if(confirm == 'y'||confirm == 'Y'){

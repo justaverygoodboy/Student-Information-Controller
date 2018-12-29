@@ -61,7 +61,7 @@ int panelOperation(Oper* list){
                 cin>>back;
                 delay();
             } else{
-                CLEAR
+                cout<<"正在返回主页面"<<endl;
                 delay();
                 panel();
             }
@@ -87,17 +87,25 @@ int panelOperation(Oper* list){
                 break;
             }
             else{
-                CLEAR
                 cout<<"正在返回主页面"<<endl;
                 delay();
                 break;
             }
         case '5':
             HEADEXIST
-            (*list).editNode();
-            (*list).saveList();
-            delay();
-            break;
+            cout<<"确定要执行此操作？(y/n)"<<endl;
+            cin>>confirm;
+            if(confirm == 'y'||confirm == 'Y'){
+                (*list).editNode();
+                (*list).saveList();
+                delay();
+                break;
+            } else{
+                cout<<"正在返回主页面"<<endl;
+                delay();
+                break;
+            }
+
         case '6':
             HEADEXIST
             (*list).searchNode();

@@ -166,7 +166,7 @@ void Oper::delNode() {
             break;
         }
         else {
-            cout<<"正在返回主页面"<<endl;
+            BACKTIP
             delay();
             break;
             }
@@ -186,7 +186,7 @@ void Oper::delNode() {
                     delNode();
                 break;
             } else{
-                cout<<"正在返回主页面"<<endl;
+                BACKTIP
                 delay();
                 break;
             }
@@ -227,24 +227,34 @@ void Oper::editNode() {
     char name[10];
     long long int keynum;
     bool exist = false;
+    char confirm;
     cout<<"请输入您要修改信息的学生姓名或学号:"<<endl;
     cin>>name;
     keynum = atoll(name);
     cout<<endl;
     while(noed!=NULL){
         if((!strcmp(name,noed->name))||keynum == noed->num){
-            exist = true;
-            cout<<"学号：";
-            cin>>noed->num;
-            cout<<endl;
-            cout<<"姓名：";
-            cin>>noed->name;
-            cout<<endl;
-            cout<<"成绩：";
-            cin>>noed->score;
-            cout<<endl;
-            cout<<"学籍信息修改成功！"<<endl;
+            cout<<noed->name<<" 的信息如下，是否确定修改？(y/n)"<<endl;
+            cout<<"姓名："<<noed->name<<" 学号："<<noed->num<<" 成绩："<<noed->score<<endl;
+            cin>>confirm;
+            if(confirm == 'y'||confirm == 'Y'){
+                exist = true;
+                cout<<"修改后的学号：";
+                cin>>noed->num;
+                cout<<endl;
+                cout<<"修改后的姓名：";
+                cin>>noed->name;
+                cout<<endl;
+                cout<<"修改后的成绩：";
+                cin>>noed->score;
+                cout<<endl;
+                cout<<"学籍信息修改成功！"<<endl;
             break;
+            } else{
+                BACKTIP
+                delay();
+                break;
+            }
         }
         noed = noed->next;
         if (!exist)

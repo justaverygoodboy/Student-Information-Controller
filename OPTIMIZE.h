@@ -3,6 +3,7 @@
 #define HEADEXIST if(!((*list).head)){cout<<"您还没有录入任何信息，请先录入或先加载信息后再操作！"<<endl;delay();break;}
 #define DELAYTIME 0.6
 #define CLEAR system("cls");
+#define BACKTIP cout<<"正在返回主页面..."<<endl;
 #endif //LINKLIST_OPTIMIZE_H
 
 void delay(){

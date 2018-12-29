@@ -37,7 +37,7 @@ int panelOperation(Oper* list){
             delay();
             }
             else{
-                cout<<"即将返回上一级"<<endl;
+                BACKTIP
                 delay();
             }
             break;
@@ -53,15 +53,17 @@ int panelOperation(Oper* list){
                 (*list).showList();
                 cout<<"键入任意值将返回主页面"<<endl;
                 cin>>back;
+                BACKTIP
                 delay();
             } else if (opershow==2){
                 (*list).sortListByScore();
                 (*list).showList();
                 cout<<"键入任意值将返回主页面"<<endl;
                 cin>>back;
+                BACKTIP
                 delay();
             } else{
-                cout<<"正在返回主页面"<<endl;
+                BACKTIP
                 delay();
                 panel();
             }
@@ -87,7 +89,7 @@ int panelOperation(Oper* list){
                 break;
             }
             else{
-                cout<<"正在返回主页面"<<endl;
+                BACKTIP
                 delay();
                 break;
             }
@@ -98,10 +100,11 @@ int panelOperation(Oper* list){
             if(confirm == 'y'||confirm == 'Y'){
                 (*list).editNode();
                 (*list).saveList();
+                BACKTIP
                 delay();
                 break;
             } else{
-                cout<<"正在返回主页面"<<endl;
+                BACKTIP
                 delay();
                 break;
             }
@@ -111,6 +114,7 @@ int panelOperation(Oper* list){
             (*list).searchNode();
             cout<<"键入任意值将返回主页面"<<endl;
             cin>>back;
+            BACKTIP
             delay();
             break;
         case '7':
@@ -124,7 +128,7 @@ int panelOperation(Oper* list){
                 break;
             }
             else{
-                cout<<"正在返回主页面..."<<endl;
+                BACKTIP
                 delay();
                 break;
             }

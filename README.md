@@ -1,5 +1,5 @@
 # Student-Information-Controller
-                  ---a little toy
+--a little toy
 
 ### some details about the toy:
 * the first is that you need to translate its encoding format into GBK or you'll get some char in a mess

@@ -42,9 +42,9 @@ void Oper::creatList(){
     int i = 0;
     struct Student* noed;
     struct Student* none;
-    cout<<"è¯·è¾“å…¥æ‚¨è¦å½•å…¥çš„å­¦ç”Ÿæ•°é‡ï¼š"<<endl;
+    cout<<"ÇëÊäÈëÄúÒªÂ¼ÈëµÄÑ§ÉúÊýÁ¿£º"<<endl;
     cin>>amount;
-    cout<<"è¯·ä¾æ¬¡è¾“å…¥å­¦ç”Ÿå­¦ç±ä¿¡æ¯ (å­¦å· å§“å æˆç»©):"<<endl;
+    cout<<"ÇëÒÀ´ÎÊäÈëÑ§ÉúÑ§¼®ÐÅÏ¢ (Ñ§ºÅ ÐÕÃû ³É¼¨):"<<endl;
     head = new Student;
     noed = head;
     cin>>noed->num>>noed->name>>noed->score;
@@ -57,7 +57,7 @@ void Oper::creatList(){
         i++;
     }
     noed->next = NULL;
-    cout<<"å½•å…¥æˆåŠŸï¼"<<endl;
+    cout<<"Â¼Èë³É¹¦£¡"<<endl;
 }
 
 void Oper::loadList() {
@@ -113,7 +113,7 @@ void Oper::showList(){
     struct Student* noed;
     noed = head;
     cout<<"-----------------------------------------------------"<<endl;
-    cout<<setw(3)<<"å­¦å·"<<setw(22)<<"å§“å"<<setw(22)<<"æˆç»©"<<endl;
+    cout<<setw(3)<<"Ñ§ºÅ"<<setw(22)<<"ÐÕÃû"<<setw(22)<<"³É¼¨"<<endl;
     while(noed!=NULL){
         cout<<setw(3)<<noed->num<<setw(17)<<noed->name<<setw(20)<<noed->score<<endl;
         noed = noed->next;
@@ -122,7 +122,7 @@ void Oper::showList(){
 }
 void Oper::delList() {
     head = NULL;
-    cout<<"å·²æ¸…ç©ºï¼"<<endl;
+    cout<<"ÒÑÇå¿Õ£¡"<<endl;
 }
 
 void Oper::addNode(){
@@ -131,12 +131,12 @@ void Oper::addNode(){
     struct Student* add;
     noed = head;
     add = new Student;
-    cout<<"è¯·è¾“å…¥è¦æ’å…¥çš„å­¦ç”Ÿå­¦ç±ä¿¡æ¯ï¼š"<<endl;
+    cout<<"ÇëÊäÈëÒª²åÈëµÄÑ§ÉúÑ§¼®ÐÅÏ¢£º"<<endl;
     cin>>add->num>>add->name>>add->score;
     add->next = noed;
     noed = add;
     head = add;
-    cout<<"æ·»åŠ å­¦ç±ä¿¡æ¯æˆåŠŸï¼æ˜¯å¦ç»§ç»­æ·»åŠ : (y/n)"<<endl;
+    cout<<"Ìí¼ÓÑ§¼®ÐÅÏ¢³É¹¦£¡ÊÇ·ñ¼ÌÐøÌí¼Ó: (y/n)"<<endl;
     cin>>confirm;
     if(confirm == 'y'||confirm == 'Y')
         addNode();
@@ -148,18 +148,18 @@ void Oper::delNode() {
     long long int keynum;
     char confirm;
     bool exist = false;
-    cout<<"è¯·è¾“å…¥è¦åˆ é™¤çš„å­¦ç”Ÿå§“åæˆ–å­¦å·ï¼š";
+    cout<<"ÇëÊäÈëÒªÉ¾³ýµÄÑ§ÉúÐÕÃû»òÑ§ºÅ£º";
     cin>>name;
     keynum = atoll(name);
     while(noed!=NULL){
         if(!strcmp(name,noed->name)||keynum == noed->num){
             exist = true;
-            cout<<"ç¡®å®šè¦åˆ é™¤ï¼š"<<noed->name<<" çš„ä¿¡æ¯ï¼Ÿ(y/n)"<<endl;
+            cout<<"È·¶¨ÒªÉ¾³ý£º"<<noed->name<<" µÄÐÅÏ¢£¿(y/n)"<<endl;
             cin>>confirm;
             if(confirm == 'y'||confirm =='Y'){
             head=noed->next;
             delete noed;
-            cout<<"åˆ é™¤æˆåŠŸï¼æ˜¯å¦éœ€è¦ç»§ç»­åˆ é™¤ï¼Ÿ(y/n)"<<endl;
+            cout<<"É¾³ý³É¹¦£¡ÊÇ·ñÐèÒª¼ÌÐøÉ¾³ý£¿(y/n)"<<endl;
             cin>>confirm;
             if(confirm == 'y'||confirm == 'Y')
                 delNode();
@@ -173,14 +173,14 @@ void Oper::delNode() {
         }
         else if (!strcmp(name,noed->next->name)||keynum == noed->next->num){
             exist = true;
-            cout<<"ç¡®å®šè¦åˆ é™¤ï¼š"<<noed->next->name<<" çš„ä¿¡æ¯ï¼Ÿ(y/n)"<<endl;
+            cout<<"È·¶¨ÒªÉ¾³ý£º"<<noed->next->name<<" µÄÐÅÏ¢£¿(y/n)"<<endl;
             cin>>confirm;
             if(confirm == 'y'||confirm =='Y'){
                 struct Student* p;
                 p = noed->next;
                 noed->next = noed->next->next;
                 delete p;
-                cout<<"åˆ é™¤æˆåŠŸï¼æ˜¯å¦éœ€è¦ç»§ç»­åˆ é™¤ï¼Ÿ(y/n)"<<endl;
+                cout<<"É¾³ý³É¹¦£¡ÊÇ·ñÐèÒª¼ÌÐøÉ¾³ý£¿(y/n)"<<endl;
                 cin>>confirm;
                 if(confirm == 'y'||confirm == 'Y')
                     delNode();
@@ -194,7 +194,7 @@ void Oper::delNode() {
             noed = noed->next;
         }
     if (!exist)
-        cout<<"æŠ±æ­‰ï¼ŒæŸ¥æ— æ­¤äºº"<<endl;
+        cout<<"±§Ç¸£¬²éÎÞ´ËÈË"<<endl;
 }
 void Oper::searchNode(){
     struct Student* noed;
@@ -202,16 +202,16 @@ void Oper::searchNode(){
     char name[12];
     long long int keynum;
     bool exist = false;
-    cout<<"è¯·è¾“å…¥æ‚¨è¦æŸ¥è¯¢çš„å­¦ç”Ÿå§“åæˆ–å­¦å·:";
+    cout<<"ÇëÊäÈëÄúÒª²éÑ¯µÄÑ§ÉúÐÕÃû»òÑ§ºÅ:";
     cin>>name;
     cout<<endl;
     keynum = atoll(name);
     while(noed!=NULL){
         if(!strcmp(name,noed->name)||keynum == noed->num){
             exist = true;
-            cout<<"æ‚¨è¦æŸ¥æ‰¾çš„å­¦ç”Ÿä¿¡æ¯å¦‚ä¸‹ï¼š"<<endl;
+            cout<<"ÄúÒª²éÕÒµÄÑ§ÉúÐÅÏ¢ÈçÏÂ£º"<<endl;
             cout<<"-----------------------------------------------------"<<endl;
-            cout<<setw(3)<<"å­¦å·"<<setw(22)<<"å§“å"<<setw(22)<<"æˆç»©"<<endl;
+            cout<<setw(3)<<"Ñ§ºÅ"<<setw(22)<<"ÐÕÃû"<<setw(22)<<"³É¼¨"<<endl;
             cout<<setw(3)<<noed->num<<setw(17)<<noed->name<<setw(20)<<noed->score<<endl;
             cout<<"-----------------------------------------------------"<<endl;
             break;
@@ -219,7 +219,7 @@ void Oper::searchNode(){
         noed = noed->next;
     }
     if (!exist)
-        cout<<"æŠ±æ­‰ï¼ŒæŸ¥æ— æ­¤äºº"<<endl;
+        cout<<"±§Ç¸£¬²éÎÞ´ËÈË"<<endl;
 }
 void Oper::editNode() {
     struct Student* noed;
@@ -228,27 +228,27 @@ void Oper::editNode() {
     long long int keynum;
     bool exist = false;
     char confirm;
-    cout<<"è¯·è¾“å…¥æ‚¨è¦ä¿®æ”¹ä¿¡æ¯çš„å­¦ç”Ÿå§“åæˆ–å­¦å·:"<<endl;
+    cout<<"ÇëÊäÈëÄúÒªÐÞ¸ÄÐÅÏ¢µÄÑ§ÉúÐÕÃû»òÑ§ºÅ:"<<endl;
     cin>>name;
     keynum = atoll(name);
     cout<<endl;
     while(noed!=NULL){
         if((!strcmp(name,noed->name))||keynum == noed->num){
-            cout<<noed->name<<" çš„ä¿¡æ¯å¦‚ä¸‹ï¼Œæ˜¯å¦ç¡®å®šä¿®æ”¹ï¼Ÿ(y/n)"<<endl;
-            cout<<"å§“åï¼š"<<noed->name<<" å­¦å·ï¼š"<<noed->num<<" æˆç»©ï¼š"<<noed->score<<endl;
+            cout<<noed->name<<" µÄÐÅÏ¢ÈçÏÂ£¬ÊÇ·ñÈ·¶¨ÐÞ¸Ä£¿(y/n)"<<endl;
+            cout<<"ÐÕÃû£º"<<noed->name<<" Ñ§ºÅ£º"<<noed->num<<" ³É¼¨£º"<<noed->score<<endl;
             cin>>confirm;
             if(confirm == 'y'||confirm == 'Y'){
                 exist = true;
-                cout<<"ä¿®æ”¹åŽçš„å­¦å·ï¼š";
+                cout<<"ÐÞ¸ÄºóµÄÑ§ºÅ£º";
                 cin>>noed->num;
                 cout<<endl;
-                cout<<"ä¿®æ”¹åŽçš„å§“åï¼š";
+                cout<<"ÐÞ¸ÄºóµÄÐÕÃû£º";
                 cin>>noed->name;
                 cout<<endl;
-                cout<<"ä¿®æ”¹åŽçš„æˆç»©ï¼š";
+                cout<<"ÐÞ¸ÄºóµÄ³É¼¨£º";
                 cin>>noed->score;
                 cout<<endl;
-                cout<<"å­¦ç±ä¿¡æ¯ä¿®æ”¹æˆåŠŸï¼"<<endl;
+                cout<<"Ñ§¼®ÐÅÏ¢ÐÞ¸Ä³É¹¦£¡"<<endl;
             break;
             } else{
                 BACKTIP
@@ -259,7 +259,7 @@ void Oper::editNode() {
         noed = noed->next;
     }
     if (!exist)
-        cout<<"æŠ±æ­‰ï¼ŒæŸ¥æ— æ­¤äºº"<<endl;
+        cout<<"±§Ç¸£¬²éÎÞ´ËÈË"<<endl;
 }
 
 void Oper::sortListByNum() {
@@ -314,14 +314,14 @@ void Oper::saveList() {
     noed = head;
     ofstream outfile("StuInfo.db",ios::out|ios::binary);
     if(!outfile){
-        cout<<"æ•°æ®è‡ªåŠ¨ä¿å­˜å¤±è´¥"<<endl;
+        cout<<"Êý¾Ý×Ô¶¯±£´æÊ§°Ü"<<endl;
     }
     else{
         while(noed){
-            outfile<<noed->num<<" "<<noed->name<<" "<<noed->score<<" ";
+            outfile<<noed->num<<"\n"<<noed->name<<"\n"<<noed->score<<"\n";
             noed = noed->next;
         }
-        cout<<"æ•°æ®è‡ªåŠ¨ä¿å­˜æˆåŠŸï¼"<<endl;
+        cout<<"Êý¾Ý×Ô¶¯±£´æ³É¹¦£¡"<<endl;
     }
     outfile.close();
 }

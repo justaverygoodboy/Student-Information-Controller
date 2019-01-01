@@ -144,7 +144,7 @@ void Oper::addNode(){
 void Oper::delNode() {
     struct Student* noed;
     noed = head;
-    char name[10];
+    char name[12];
     long long int keynum;
     char confirm;
     bool exist = false;
@@ -199,7 +199,7 @@ void Oper::delNode() {
 void Oper::searchNode(){
     struct Student* noed;
     noed = head;
-    char name[10];
+    char name[12];
     long long int keynum;
     bool exist = false;
     cout<<"请输入您要查询的学生姓名或学号:";
@@ -224,7 +224,7 @@ void Oper::searchNode(){
 void Oper::editNode() {
     struct Student* noed;
     noed = head;
-    char name[10];
+    char name[12];
     long long int keynum;
     bool exist = false;
     char confirm;
@@ -257,9 +257,9 @@ void Oper::editNode() {
             }
         }
         noed = noed->next;
-        if (!exist)
-            cout<<"抱歉，查无此人"<<endl;
     }
+    if (!exist)
+        cout<<"抱歉，查无此人"<<endl;
 }
 
 void Oper::sortListByNum() {
